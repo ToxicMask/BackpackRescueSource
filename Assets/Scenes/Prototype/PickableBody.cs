@@ -7,23 +7,8 @@ using UnityEngine;
 public class PickableBody : MonoBehaviour, ICanBePicked
 {
 
-    [SerializeField] bool isPicked;
-
-
-
     public GameObject PickObject()
     {
         return gameObject;
-    }
-
-
-    void Start()
-    {
-        
-    }
-    
-    void Update()
-    {
-        
     }
 }

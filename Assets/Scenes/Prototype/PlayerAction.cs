@@ -11,11 +11,6 @@ public class PlayerAction : MonoBehaviour, ICanHold
     public ICanBePicked currentPicked;
 
 
-    void Start(){}
-
-    void Update() { }
-
-
     public void Try2PickObject()
     {
         //Debug.Log("Picked");
@@ -44,6 +39,9 @@ public class PlayerAction : MonoBehaviour, ICanHold
                     //Debug.Log(pickableObject.PickObject().name);
 
                     Hold(pickableObject);
+
+                    // Ends the loop
+                    break;
                 }
             }
 
@@ -52,7 +50,7 @@ public class PlayerAction : MonoBehaviour, ICanHold
 
     public void Hold(ICanBePicked picked)
     {
-        Debug.Log("Hold :  " + picked.PickObject().name );
+        //Debug.Log("Hold :  " + picked.PickObject().name );
 
         Transform pickTransform = picked.PickObject().transform;
         Rigidbody2D pickRB2D = picked.PickObject().GetComponent<Rigidbody2D>();
@@ -72,7 +70,7 @@ public class PlayerAction : MonoBehaviour, ICanHold
 
     public void Release()
     {
-        Debug.Log("Release");
+        //Debug.Log("Release");
 
         Transform pickTransform = currentPicked.PickObject().transform;
         Rigidbody2D pickRB2D = currentPicked.PickObject().GetComponent<Rigidbody2D>();
