@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider2D))]
 public class CheckObject : MonoBehaviour
 {
 
+    [SerializeField] ChangeScene changeScene;
+
     public string key = "flower";
+
+
+    protected virtual void Start()
+    {
+        // Auto Get
+        changeScene = GetComponent<ChangeScene>();
+    }
+
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-
-        Debug.Log("#");
 
         ICanBeChecked checkedObject = collision.transform.GetComponent<ICanBeChecked>();
 
@@ -21,7 +28,7 @@ public class CheckObject : MonoBehaviour
             if (checkedObject.Check(key))
             {
                 Debug.LogWarning("End Game");
-                //SceneManager.LoadScene();
+                if (changeScene != null) changeScene.ToStartMenu();
             }
         }
     }
