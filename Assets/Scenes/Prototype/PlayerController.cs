@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Action1"))
         {
             // Try to Pick Object
-            if (playerMove != null) playerAction.Try2PickObject();
+            if (playerAction != null) playerAction.Try2PickObject();
 
            return;
         }

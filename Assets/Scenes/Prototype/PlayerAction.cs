@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform actionPivot;
+
+    public Transform pickedObjectPosition;
+
     void Start()
     {
         
@@ -12,7 +15,23 @@ public class PlayerAction : MonoBehaviour
 
     public void Try2PickObject()
     {
-        Debug.Log("Picked");
+        //Debug.Log("Picked");
+
+
+        Collider2D[] hitInfo = Physics2D.OverlapCircleAll( actionPivot.position , .5f);
+
+        
+        foreach (Collider2D collisionObj in hitInfo)
+        {
+            
+            ICanBePicked pickableObject = collisionObj.GetComponent<ICanBePicked>();
+
+            if (pickableObject != null)
+            {
+                //Debug.Log("!");
+                Debug.Log(pickableObject.PickObject().name);
+            }
+        }
     }
 
 }
