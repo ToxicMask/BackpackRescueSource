@@ -7,9 +7,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Rigidbody2D rb2D;
 
 
-    // Input VAraibles
+    // Input Varaibles
     [SerializeField] Vector2 walkDirection = Vector2.zero;
     [SerializeField] float walkSpeed = 1;
+
+    public Vector2 fowardDirection = Vector2.right;
 
    
 
@@ -31,5 +33,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //Debug.Log("ALERT: WALKING");
         walkDirection = newVector;
+
+        if (newVector != Vector2.zero )fowardDirection = newVector.normalized;
     }
 }

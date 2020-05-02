@@ -256,6 +256,7 @@ MonoBehaviour:
   rb2D: {fileID: 0}
   walkDirection: {x: 0, y: 0}
   walkSpeed: 64
+  fowardDirection: {x: 1, y: 0}
 --- !u!114 &301871102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionPivot: {fileID: 276634611}
   pickedObjectPosition: {fileID: 1471725770}
+  throwSpeed: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1087,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}

@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour, ICanHold
 {
+    // Components
     public Transform actionPivot;
-
     public Transform pickedObjectPosition;
-
     public ICanBePicked currentPicked;
 
 
-    public void Try2PickObject()
+    // Phisycs Variables
+    public float throwSpeed = 5f;
+
+
+    public void TryPickObject()
     {
         //Debug.Log("Picked");
 
         // Release Current Picked Object
-        if ( currentPicked != null )
+        if (currentPicked != null)
         {
             Release();
             return;
@@ -48,10 +51,23 @@ public class PlayerAction : MonoBehaviour, ICanHold
         }
     }
 
+    public void TryThrowingObject(Vector2 throwDirection)
+    {
+        if (currentPicked == null )
+        {
+            //Debug.Log("No Object");
+            return;
+        }
+
+        // Throw Object
+        Throw(throwDirection);
+    }
+
     public void Hold(ICanBePicked picked)
     {
         //Debug.Log("Hold :  " + picked.PickObject().name );
 
+        //Components
         Transform pickTransform = picked.PickObject().transform;
         Rigidbody2D pickRB2D = picked.PickObject().GetComponent<Rigidbody2D>();
 
@@ -68,10 +84,31 @@ public class PlayerAction : MonoBehaviour, ICanHold
 
     }
 
+    public void Throw(Vector2 throwDirection)
+    {
+        //Debug.Log("Throw");
+
+        ICanBePicked picked = currentPicked;
+
+        //Components
+        Transform pickTransform = currentPicked.PickObject().transform;
+        Rigidbody2D pickRB2D = currentPicked.PickObject().GetComponent<Rigidbody2D>();
+
+        //Transform
+        pickTransform.SetParent(null);
+
+        // RigidBody
+        pickRB2D.velocity = throwDirection * throwSpeed;
+        pickRB2D.isKinematic = false;
+
+        currentPicked = null;
+    }
+
     public void Release()
     {
         //Debug.Log("Release");
 
+        //Components
         Transform pickTransform = currentPicked.PickObject().transform;
         Rigidbody2D pickRB2D = currentPicked.PickObject().GetComponent<Rigidbody2D>();
 
