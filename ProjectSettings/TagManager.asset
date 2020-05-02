@@ -15,7 +15,7 @@ TagManager:
   - 
   - Player
   - Enemy
-  - 
+  - Pickable Object
   - 
   - 
   - 
@@ -46,4 +46,7 @@ TagManager:
     locked: 0
   - name: Standard - Actor
     uniqueID: 1574184157
+    locked: 0
+  - name: Pickable Object
+    uniqueID: 1001244399
     locked: 0
