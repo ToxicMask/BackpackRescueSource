@@ -2,36 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAction : MonoBehaviour
+public class PlayerAction : MonoBehaviour, ICanHold
 {
     public Transform actionPivot;
 
     public Transform pickedObjectPosition;
 
-    void Start()
-    {
-        
-    }
+    public ICanBePicked currentPicked;
+
+
+    void Start(){}
+
+    void Update() { }
+
 
     public void Try2PickObject()
     {
         //Debug.Log("Picked");
 
-
-        Collider2D[] hitInfo = Physics2D.OverlapCircleAll( actionPivot.position , .5f);
-
-        
-        foreach (Collider2D collisionObj in hitInfo)
+        // Release Current Picked Object
+        if ( currentPicked != null )
         {
-            
-            ICanBePicked pickableObject = collisionObj.GetComponent<ICanBePicked>();
+            Release();
+            return;
+        }
 
-            if (pickableObject != null)
+
+        else {
+
+            Collider2D[] hitInfo = Physics2D.OverlapCircleAll(actionPivot.position, .5f);
+
+
+            foreach (Collider2D collisionObj in hitInfo)
             {
-                //Debug.Log("!");
-                Debug.Log(pickableObject.PickObject().name);
+
+                ICanBePicked pickableObject = collisionObj.GetComponent<ICanBePicked>();
+
+                if (pickableObject != null)
+                {
+                    //Debug.Log("!");
+                    //Debug.Log(pickableObject.PickObject().name);
+
+                    Hold(pickableObject);
+                }
             }
+
         }
     }
 
+    public void Hold(ICanBePicked picked)
+    {
+        Debug.Log("Hold :  " + picked.PickObject().name );
+        currentPicked = picked;
+
+    }
+
+    public void Release()
+    {
+        Debug.Log("Release");
+        currentPicked = null;
+    }
 }
