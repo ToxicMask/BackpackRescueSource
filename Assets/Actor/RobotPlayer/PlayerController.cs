@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    [SerializeField] PlayerMovement playerMove;
+    // Componnets
+    [SerializeField] PlayerAnimation playerAnim;
     [SerializeField] PlayerAction playerAction;
+    [SerializeField] PlayerMovement playerMove;
+
     
     void Start()
     {
         // Auto Get
-        playerMove = GetComponent<PlayerMovement>();
+        playerAnim = GetComponent<PlayerAnimation>();
         playerAction = GetComponent<PlayerAction>();
+        playerMove = GetComponent<PlayerMovement>();
     }
     
     void Update()
@@ -44,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
         // Set Walk Direction
         if (playerMove != null) playerMove.SetWalkDirection(walkDirection);
+        if (playerAnim != null) playerAnim.UpdateMovementAnimation();
         
     }
 }
