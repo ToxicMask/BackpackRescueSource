@@ -149,7 +149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 301871097}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &301871096
 GameObject:
@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 301871102}
   - component: {fileID: 301871101}
   - component: {fileID: 301871100}
+  - component: {fileID: 301871103}
   m_Layer: 8
   m_Name: Pack Robot
   m_TagString: Player
@@ -183,10 +184,10 @@ Transform:
   m_LocalPosition: {x: 0, y: -2.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 2025333288}
   - {fileID: 276634611}
   - {fileID: 1471725770}
   - {fileID: 1568250039}
-  - {fileID: 2025333288}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -239,8 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bfc139e7721cd4f93c69885f32986c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMove: {fileID: 0}
+  playerAnim: {fileID: 0}
   playerAction: {fileID: 0}
+  playerMove: {fileID: 0}
 --- !u!114 &301871101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +274,19 @@ MonoBehaviour:
   actionPivot: {fileID: 276634611}
   pickedObjectPosition: {fileID: 1471725770}
   throwSpeed: 10
+--- !u!114 &301871103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301871096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898a772c1db1cb842bfd9be7e5b82dc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animControl: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +828,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 301871097}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1568250038
 GameObject:
@@ -844,7 +859,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 301871097}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &1568250040
 TrailRenderer:
@@ -1105,6 +1120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2025333288}
   - component: {fileID: 2025333289}
+  - component: {fileID: 2025333290}
   m_Layer: 8
   m_Name: ImageBody
   m_TagString: Untagged
@@ -1124,7 +1140,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 301871097}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2025333289
 SpriteRenderer:
@@ -1176,6 +1192,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2025333290
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025333287}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f276c76fe0c778f42bc65ee26becd5b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2127694859
 GameObject:
   m_ObjectHideFlags: 0

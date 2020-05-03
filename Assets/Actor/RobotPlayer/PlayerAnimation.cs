@@ -16,12 +16,16 @@ public class PlayerAnimation : MonoBehaviour
 
 
     // Movement || Idle; Walk
-    public void UpdateMovementAnimation() {
+    public void UpdateMovementAnimation(Vector2 fowardVector, Vector2 walkVector) {
 
         //Debug.Log("Animation");
 
         // Return if null Animator
         if (animControl == null) return;
+
+
+        animControl.SetFloat("foward direction", fowardVector.x);
+        animControl.SetFloat("walk magnitude", Mathf.Abs( walkVector.x) );
 
     }
 

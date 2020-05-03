@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
         // Set Walk Direction
         if (playerMove != null) playerMove.SetWalkDirection(walkDirection);
-        if (playerAnim != null) playerAnim.UpdateMovementAnimation();
+        if (playerAnim != null) playerAnim.UpdateMovementAnimation(playerMove.fowardDirection, walkDirection);
         
     }
 }
