@@ -16,10 +16,16 @@ public class ChangeScene : MonoBehaviour
         SceneManager.LoadScene("StartMenu");
     }
 
+    public void ToTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
     public void StartNewGame()
     {
         SceneManager.LoadScene("PlayerTest");
     }
+
 
     public void ExitGame()
     {
